@@ -3,6 +3,7 @@ import fs from 'fs';
 
 const app = express();
 const PORT = 8069;
+const IP = "0.0.0.0";
 
 app.use(express.raw());
 
@@ -31,6 +32,6 @@ app.get('/mini', (request,res)=>{
 });
 
 
-app.listen(PORT, ()=>{
-    console.log(`SERVER ON: http://localhost:${PORT}`)
+app.listen(PORT, IP, ()=>{
+    console.log(`SERVER ON: http://${IP}:${PORT}`)
 })
