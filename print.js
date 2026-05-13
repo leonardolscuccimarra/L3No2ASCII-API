@@ -9,4 +9,4 @@ export async function printear(miniatura = false) {
   }
 }
 
-console.log(await printear())
+console.log(await printear(process.argv.includes("-mini",2) || process.argv.includes("-m",2)))
