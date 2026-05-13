@@ -1,10 +1,12 @@
-import fs from 'fs';
+import fs from 'fs/promises';
 
-fs.readFile('ascii-art.txt', 'utf8', (err, data) => {
-  if (err) {
-    console.error('Se rompio to:\n', err);
-    return;
+export async function printear(miniatura = false) {
+  const file = `ascii-art${miniatura? " mini":""}.txt`
+  try{
+    return await fs.readFile(file, 'utf8');
+  } catch (err){
+    return ('Se rompio to:\n', err);
   }
-  console.clear();
-  console.log(data);
-});
+}
+
+console.log(await printear())
